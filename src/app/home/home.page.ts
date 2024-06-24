@@ -5,8 +5,9 @@ import { IoniconsModule } from '../common/modules/ionicons.module';
 import { Router } from '@angular/router';
 import { AlertController, IonicModule } from '@ionic/angular';
 import { FirestoreService } from 'src/app/common/services/firestore.service';
-import { UserI } from '../common/models/users.models';
+import { User } from '../common/models/users.models';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../common/services/auth.service';
 
 
 
@@ -26,12 +27,13 @@ import { CommonModule } from '@angular/common';
 })
 export class HomePage {
 
+  currentUser: User | null = null;
 
 
 
 
   constructor( private router: Router,private firestoreService: FirestoreService,
-    private alertController: AlertController,) {
+    private alertController: AlertController,private authService: AuthService,) {
 
 
   }
